@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Airline Flights</title>
+  </head>
+  <body>
+    <!-- Accept List of Flights from Airline ID-->
+    <div>
+    <h2>AIRLINE FLIGHTS FOR : <%= airline_id %></h2>
+    <ol>
+      <% if (flights.length == 0){ %>
+         <li>There are no flights with this airline.</li>
+      <% }else{ %>
+          <% for (i=0; i < flights.length ;i++){ %>
+              AIRLINE : <%= airline_id %>
+              <li>Flight from <%= flights[i].start %> to <%= flights[i].destination %> </li><br/>
+          <% } %>
+      <%  } %>
+    </ol>
+    </div>
+    <hr>
+    <h2>Create Flight</h2>
+    <form class="" action="/airlines/<%=airline_id %>/flights" method="post">
+      <input type="text" name="start"  placeholder="Start "><br>
+      <input type="text" name="destination" placeholder="Destination"><br>
+      <input type="submit" name="" value="ADD FLIGHT">
+    </form>
+
+
+  </body>
+</html>

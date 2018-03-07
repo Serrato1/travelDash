@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Airline Login</title>
+  </head>
+  <body>
+    <h2>Choose an Airline</h2>
+    <form class="" action="/airlines/login" method="post">
+      <!--EJS FOR LOOP in AIRLINE LIST -->
+
+      <ul>
+          <% for (let i = 0; i < airlines.length; i++){%>
+              <li> <%=  airlines[i].name %> </li>
+              <li> <%=  airlines[i].description %> </li>
+              <br>
+          <% } %>
+      </ul>
+      <select name="selected_airline" value="">
+        <% for (let i = 0; i < airlines.length; i++){%>
+            <option value="<%= airlines[i].id%>"> <%=  airlines[i].name %> </li>
+        <% } %>
+      </select><br/>
+      <input type="submit" value="Select Airline" />
+    </form>
+    <hr>
+    <h2>Create an Airline</h2>
+    <form class="" action="/airlines/create" method="post">
+      <input type="text" name="name" value="" placeholder="Create New Airline"><br/>
+      <input type="text" name="description" value="" placeholder="Description"><br/>
+      <input type="submit" value="Create Airline" />
+    </form>
+  </body>
+</html>
